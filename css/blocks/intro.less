@@ -1,14 +1,20 @@
 //  main: ../style.less
 
 .intro__inner {
+
+    position: relative;
     display: flex;
     padding-top: 100px;
     padding-bottom: 120px;
     border-bottom: 1px solid fade(@gray, 30%);
+    background: url(../img/background.png) right bottom no-repeat;
 }
 
 .intro__photo {
-    width: 50%;
+    position: absolute;
+    right: 70px;
+    bottom: 0;
+    z-index: 1;
 }
 
 .intro__content {
