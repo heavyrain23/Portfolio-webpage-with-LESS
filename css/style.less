@@ -11,6 +11,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     color: @black;
+
+    &:no-scroll {
+        overflow: hidden;
+    }
 }
 
 p {
@@ -42,6 +46,10 @@ h1,h2,h3,h4,h5 {
 @import "blocks/reviews";
 @import "blocks/blog";
 @import "blocks/footer";
+
+//Modal  
+@import "blocks/modal";
+@import "blocks/modal-work";
 
 /*Helpers*/
 @import "blocks/helpers";
