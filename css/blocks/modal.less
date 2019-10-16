@@ -17,6 +17,27 @@
     width: 100%;
     max-width: 1200px;
     margin: auto;
-    padding: 2rem;
     background: #fff;
+    position: relative;
+}
+
+.modal__close {
+    width: 34px;
+    height: 39;
+    padding: 0;
+
+    position: absolute;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    position: absolute;
+    top: .9rem;
+    right: .9rem;
+    z-index: 1;
+    transition: transform .2s linear;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
 }
