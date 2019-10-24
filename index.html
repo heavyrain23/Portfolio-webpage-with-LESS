@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet"> 
     <title>Portfolio</title>
+    <script src= 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
 </head>
 <body class ="no-scroll">
 
@@ -87,20 +88,19 @@
     <div class="container">
 
         <div class="works__nav">
-            <a class="works__nav-link" href="#">All</a>
-            <a class="works__nav-link" href="#">App</a>
-            <a class="works__nav-link" href="#">Website</a>
-            <a class="works__nav-link" href="#">Interaction</a>
+            <a class="works__nav-link" href="#" data-filter= "all">All</a>
+            <a class="works__nav-link" href="#" data-filter= "app">App</a>
+            <a class="works__nav-link" href="#" data-filter = "website">Website</a>
+            <a class="works__nav-link" href="#" data-filter = "interaction">Interaction</a>
         </div>
 
-        <div class="portfolio">
+        <div class="portfolio" id="portfolio">
 
-            <div class="potfolio__col">
-
+            <div class="potfolio__col" data-cat="app">
                 <div class="portfolio__item">
                     <img class = "portfolio__img"src="https://placehold.it/370x300" alt="">
                         <div class="portfolio__item-content">
-                        <div class="portfolio__cat">Category</div>
+                        <div class="portfolio__cat">Category: app</div>
                         <div class="portfolio__title">
                             Project title
                         <time class="portfolio__date" datetime="2019-11-22 19:00">2019</time>
@@ -109,12 +109,12 @@
                 </div>
             </div>
 
-            <div class="potfolio__col">
+            <div class="potfolio__col" data-cat="website">
 
                     <div class="portfolio__item">
                         <img class = "portfolio__img"src="https://placehold.it/370x300" alt="">
                             <div class="portfolio__item-content">
-                            <div class="portfolio__cat">Category</div>
+                            <div class="portfolio__cat">Category: website</div>
                             <div class="portfolio__title">
                                 Project title
                             <time class="portfolio__date" datetime="2019-11-22 19:00">2019</time>
@@ -123,12 +123,12 @@
                     </div>
                 </div>
 
-                <div class="potfolio__col">
+                <div class="potfolio__col" data-cat="interaction">
 
                         <div class="portfolio__item">
                             <img class = "portfolio__img"src="https://placehold.it/370x300" alt="">
                                 <div class="portfolio__item-content">
-                                <div class="portfolio__cat">Category</div>
+                                <div class="portfolio__cat">Categor: interaction</div>
                                 <div class="portfolio__title">
                                     Project title
                                 <time class="portfolio__date" datetime="2019-11-22 19:00">2019</time>
@@ -137,12 +137,12 @@
                         </div>
                     </div>
 
-                    <div class="potfolio__col">
+                    <div class="potfolio__col " data-cat="app">
 
                             <div class="portfolio__item">
                                 <img class = "portfolio__img"src="https://placehold.it/370x300" alt="">
                                     <div class="portfolio__item-content">
-                                    <div class="portfolio__cat">Category</div>
+                                    <div class="portfolio__cat">Category: app</div>
                                     <div class="portfolio__title">
                                         Project title
                                     <time class="portfolio__date" datetime="2019-11-22 19:00">2019</time>
@@ -151,12 +151,12 @@
                             </div>
                         </div>
 
-                        <div class="potfolio__col">
+                        <div class="potfolio__col" data-cat="interaction">
 
                                 <div class="portfolio__item">
                                     <img class = "portfolio__img"src="https://placehold.it/370x300" alt="">
                                         <div class="portfolio__item-content">
-                                        <div class="portfolio__cat">Category</div>
+                                        <div class="portfolio__cat">Category: interaction</div>
                                         <div class="portfolio__title">
                                             Project title
                                         <time class="portfolio__date" datetime="2019-11-22 19:00">2019</time>
@@ -165,12 +165,12 @@
                                 </div>
                             </div>
 
-                            <div class="potfolio__col">
+                            <div class="potfolio__col" data-cat="website">
 
                                     <div class="portfolio__item">
                                         <img class = "portfolio__img"src="https://placehold.it/370x300" alt="">
                                             <div class="portfolio__item-content">
-                                            <div class="portfolio__cat">Category</div>
+                                            <div class="portfolio__cat">Category: website</div>
                                             <div class="portfolio__title">
                                                 Project title
                                             <time class="portfolio__date" datetime="2019-11-22 19:00">2019</time>
@@ -365,10 +365,10 @@
             </div>    <!-- footer__credits -->
 
             <nav class="footer__nav">
-                <a class ='footer__nav-link' href="#">Work</a>
-                <a class ='footer__nav-link' href="#">About</a>
-                <a class ='footer__nav-link' href="#">Blog</a>
-                <a class ='footer__nav-link' href="#">Contact</a>
+                <a class ='footer__nav-link' href="#" data-filter="all">Work</a>
+                <a class ='footer__nav-link' href="#" data-filter="app">About</a>
+                <a class ='footer__nav-link' href="#" data-filter="website">Blog</a>
+                <a class ='footer__nav-link' href="#" data-filter="interaction">Contact</a>
                 <a class ='footer__nav-link footer__nav-link--btn' href="#">Hire me</a>
             </nav>
         </div>
@@ -431,7 +431,7 @@
     </div>   <!-- modal__dialog -->
 </div> <!-- modal -->
 
-<div class="modal">
+<div class="modal" style = "display :none;">
     <div class="modal__dialog">
         <button class='modal__close' type='button'>
             <img src="img/error.svg" alt="close">
@@ -577,6 +577,11 @@
         </div>  <!--modal__content-->
     </div>  <!--modal__ dialog-->
 </div>  <!--modal-->
+
+
+<!-- js -->
+
+<script src="js/app.js"></script>
     
 </body>
 </html>
