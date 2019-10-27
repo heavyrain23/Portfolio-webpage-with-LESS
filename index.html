@@ -35,7 +35,7 @@
                <a class ="nav__link" href="#">about me</a>
                <a class ="nav__link" href="#">blog</a>
                <a class ="nav__link" href="#">contact</a>
-               <a class ="nav__link nav__link--btn" href="#">hire me</a>
+               <a class ="nav__link nav__link--btn" data-modal="#modal_hire_me" href="#">hire me</a>
             </nav>
         </div>
     </div>
@@ -74,8 +74,8 @@
 
                     </div>
 
-                <a class = "btn" href="#">Hire me</a>
-                <button class = "btn" type="button">See my resume</button>
+                <a class = "btn" href="#" type ="button" data-modal= "#modal_hire_me" >Hire me</a>
+                <button class = "btn" type="button" data-modal= "#modal_resume">See my resume</button>
                 
            </div>
                 <img class = "intro__photo" src="img/designer_photo.png" alt="">    
@@ -97,7 +97,7 @@
         <div class="portfolio" id="portfolio">
 
             <div class="potfolio__col" data-cat="app">
-                <div class="portfolio__item">
+                <div class="portfolio__item" data-modal="#modal_project_1">
                     <img class = "portfolio__img"src="https://placehold.it/370x300" alt="">
                         <div class="portfolio__item-content">
                         <div class="portfolio__cat">Category: app</div>
@@ -379,11 +379,11 @@
 
 
 
-<!-- Modal -->
-<div class="modal" style="display: none;" id = "modal_project_1">
+<!-- Modals -->
+<div class="modal" id = "modal_project_1">
     <div class="modal__dialog">
 
-        <button class="modal__close" type ='button'>
+        <button class="modal__close" type ='button' data-close>
             <img src="img/error.svg" alt="close">
         </button>
         <div class="modal-work">
@@ -431,9 +431,9 @@
     </div>   <!-- modal__dialog -->
 </div> <!-- modal -->
 
-<div class="modal" style="display: none;" id = "modal__resume">
+<div class="modal" id = "modal_resume">
     <div class="modal__dialog">
-        <button class='modal__close' type='button'>
+        <button class='modal__close' type='button' data-close>
             <img src="img/error.svg" alt="close">
         </button>
         <div class="modal__content">
@@ -578,9 +578,9 @@
     </div>  <!--modal__ dialog-->
 </div>  <!--modal-->
 
-<div class="modal">
+<div class="modal" id =modal_hire_me>
     <div class="modal__dialog   modal__dialog--sm">
-            <button class="modal__close" type="button">
+            <button class="modal__close" type="button" data-close>
                 <img src="img/error.svg" alt="">
             </button>
 
@@ -603,12 +603,12 @@
             
                 <form class= "form" action="/" method="post">
                     <div class = "form__group"> 
-                        <label for="form__label" class="label">Adress e-mail</label>
+                        <label class="form__label" for="input e-mail" >Adress e-mail</label>
                         <input class="form__input" name="input-email" type="text" id="input-email" placeholder="Adress e-mail">
                     </div> 
 
                     <div class = "form__group"> 
-                            <label class="for__label" for="input-text" >Request</label>
+                            <label class="form__label" for="input-text" >Request</label>
                             <textarea class="form__textarea" name="input-text" id="input-text" placeholder="Type your request..."></textarea>
                     </div> 
                     <div class="text-right">
