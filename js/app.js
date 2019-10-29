@@ -1,5 +1,7 @@
 $(function() {
 
+    const worksSlider = $('[data-slider="slick"]');
+
     // Filter
 
     let filter = $("[data-filter]");
@@ -47,6 +49,8 @@ modalCall.on("click", function (event) {
             transform: "rotate(0)"
         });
     }, 200);
+
+    worksSlider.slick('setPosition');
 });
 
 
@@ -64,6 +68,8 @@ modalClose.on("click", function (event) {
         modalParent.removeClass('show');
         $("body").removeClass('no-scroll');
     }, 200);
+
+    $('[data-slider="slick"]').slick('setPosition');
 });
 
 $(".modal").on('click', function (event) {
@@ -86,6 +92,33 @@ $('.modal__dialog').on("click", function (event) {
 event.stopPropagation();
 
 });
+
+//Slider
+
+    worksSlider.slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        arrows: false,
+        dots: true
+
+    });
+
+    $("slickPrev").on("click", function(event) {
+        event.preventDefault();
+
+        let currentSlider = 
+        $(this).parents(".modal").find('[data-slider = "slick"]');
+
+        currentSlider.slick("slickPrev");
+    });
+
+    $("slickNext").on("click", function(event) {
+        event.preventDefault();
+
+        $('#worksSlider').slick("slickNext");
+    });
 
 
 });
