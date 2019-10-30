@@ -1,13 +1,12 @@
-// compress:true
-
-@import "vars.less";
+// compress: true
+@import "vars";
 
 html {
-    font-size: 15px;
+   font-size: 15px;
 }
 
 body {
-    margin:0;
+    margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     color: @black;
@@ -17,12 +16,12 @@ body {
     }
 }
 
-p {
-    margin: 0 0 1rem;
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
 }
 
-h1,h2,h3,h4,h5 {
-    margin: 0;
+p {
+    margin: 0 0 1rem;
 }
 
 *,
@@ -31,12 +30,12 @@ h1,h2,h3,h4,h5 {
     box-sizing: border-box;
 }
 
-/*Vendor*/
+
+/* Vendor */
 @import "vendor/slick";
 
 
-/*Blocks*/
-
+/* Block */
 @import "blocks/container";
 @import "blocks/header";
 @import "blocks/user";
@@ -45,15 +44,13 @@ h1,h2,h3,h4,h5 {
 @import "blocks/social";
 @import "blocks/btn";
 @import "blocks/works";
+@import "blocks/work";
 @import "blocks/portfolio";
 @import "blocks/about";
 @import "blocks/reviews";
-@import "blocks/blog";
+@import "blocks/news";
+@import "blocks/articles";
 @import "blocks/footer";
-
-
-
-//Modal  
 @import "blocks/modal";
 @import "blocks/modal-work";
 @import "blocks/timeline";
@@ -62,7 +59,5 @@ h1,h2,h3,h4,h5 {
 @import "blocks/form";
 
 
-/*Helpers*/
-@import "blocks/helpers";
-
-
+/* Helpers */
+@import "helpers";

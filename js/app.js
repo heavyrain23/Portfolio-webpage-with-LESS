@@ -2,98 +2,96 @@ $(function() {
 
     const worksSlider = $('[data-slider="slick"]');
 
-    // Filter
-
+    /* Filter
+    =====================*/
     let filter = $("[data-filter]");
 
-    filter.on('click', function(event) {
+    filter.on("click", function(event) {
         event.preventDefault();
 
-        let cat = $(this).data("filter");
+        let cat = $(this).data('filter');
 
         if(cat == 'all') {
             $("[data-cat]").removeClass("hide");
         } else {
+            $("[data-cat]").each(function() {
+                let workCat = $(this).data('cat');
 
-        $("[data-cat]").each(function() {
-
-            let workCat = $(this).data('cat');
-
-                if(workCat !=cat) {
+                if(workCat != cat) {
                     $(this).addClass('hide');
                 } else {
                     $(this).removeClass('hide');
                 }
-
-          });
+            });
         }
     });
 
 
-// Modal
 
-const modalCall = $("[data-modal]");
-const modalClose = $("[data-close]");
 
-modalCall.on("click", function (event) {
-    event.preventDefault();
+    /* Modal
+    =====================*/
 
-    let $this = $(this);
-    let modalId = $this.data('modal');
+    const modalCall = $("[data-modal]");
+    const modalClose = $("[data-close]");
 
-    $(modalId).addClass('show');
-    $("body").addClass('no-scroll');
+    modalCall.on("click", function(event) {
+        event.preventDefault();
 
-    setTimeout(function () {
-        $(modalId).find(".modal__dialog").css({
-            transform: "rotate(0)"
+        let $this = $(this);
+        let modalId = $this.data('modal');
+
+        $(modalId).addClass('show');
+        $("body").addClass('no-scroll');
+
+        setTimeout(function() {
+            $(modalId).find(".modal__dialog").css({
+                transform: "scale(1)"
+            });
+        }, 200);
+
+        worksSlider.slick('setPosition');
+    });
+
+
+    modalClose.on("click", function(event) {
+        event.preventDefault();
+
+        let $this = $(this);
+        let modalParent = $this.parents('.modal');
+
+        modalParent.find(".modal__dialog").css({
+            transform: "scale(0)"
         });
-    }, 200);
 
-    worksSlider.slick('setPosition');
-});
-
-
-modalClose.on("click", function (event) {
-    event.preventDefault();
-
-    let $this = $(this);
-    let modalParent = $this.parents('.modal');
-
-    modalParent.find(".modal_dialog").css({
-        transform: "rotateX(90deg)"
+        setTimeout(function() {
+            modalParent.removeClass('show');
+            $("body").removeClass('no-scroll');
+        }, 200);
     });
 
-    setTimeout(function () {
-        modalParent.removeClass('show');
-        $("body").removeClass('no-scroll');
-    }, 200);
 
-    $('[data-slider="slick"]').slick('setPosition');
-});
+    $(".modal").on("click", function(event) {
+        let $this = $(this);
 
-$(".modal").on('click', function (event) {
-    let $this = $(this);
+        $this.find(".modal__dialog").css({
+            transform: "scale(0)"
+        });
 
-    $this.find(".modal_dialog").css({
-        transform: "rotateX(90deg)"
+        setTimeout(function() {
+            $this.removeClass('show');
+            $("body").removeClass('no-scroll');
+        }, 200);
     });
 
-    setTimeout(function () {
-        $this.removeClass('show');
-        $("body").removeClass('no-scroll');
-    }, 200);
-
-});
+    $(".modal__dialog").on("click", function(event) {
+        event.stopPropagation();
+    });
 
 
 
-$('.modal__dialog').on("click", function (event) {
-event.stopPropagation();
-
-});
-
-//Slider
+    /* Slider: https://kenwheeler.github.io/slick/
+    =====================*/
 
     worksSlider.slick({
         infinite: true,
@@ -102,23 +100,26 @@ event.stopPropagation();
         fade: true,
         arrows: false,
         dots: true
-
     });
 
-    $("slickPrev").on("click", function(event) {
+    $(".slickPrev").on("click", function(event) {
         event.preventDefault();
 
-        let currentSlider = 
-        $(this).parents(".modal").find('[data-slider = "slick"]');
+        let currentSlider = $(this).parents('.modal').find('[data-slider="slick"]');
 
         currentSlider.slick("slickPrev");
     });
 
-    $("slickNext").on("click", function(event) {
+    $(".slickNext").on("click", function(event) {
         event.preventDefault();
 
-        $('#worksSlider').slick("slickNext");
+        let currentSlider = $(this).parents('.modal').find('[data-slider="slick"]');
+
+        currentSlider.slick("slickNext");
     });
+
+
+
 
 
 });
